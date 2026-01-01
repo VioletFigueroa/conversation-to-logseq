@@ -1,0 +1,10 @@
+# No external dependencies required
+# Uses only Python standard library:
+# - argparse (CLI argument parsing)
+# - re (regex pattern matching)
+# - sys (system utilities)
+# - hashlib (SHA256 hashing)
+# - pathlib (cross-platform file paths)
+# - datetime (date/time handling)
+# - typing (type hints)
+# - json (JSON parsing)
