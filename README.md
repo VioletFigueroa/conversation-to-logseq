@@ -1,53 +1,94 @@
 # Conversation to Logseq
 
-A Python CLI tool that converts Perplexity and VS Code chat conversations into Logseq-compatible notes with automatic domain classification, schema compliance, and duplicate detection.
+Convert Perplexity and VS Code chat conversations into Logseq-compatible notes with automatic domain classification, duplicate detection, and metadata generation.
 
-## Features
+**Features:**
+- ✅ Multi-source support (Perplexity, VS Code Copilot)
+- ✅ Automatic domain classification
+- ✅ Duplicate detection via SHA256 hashing
+- ✅ YAML frontmatter with metadata
+- ✅ Resume capability (safely rerun)
+- ✅ Batch processing (100+ files/sec)
+- ✅ Dry-run mode for previews
+- ✅ Zero external dependencies
 
-- **Multi-Source Support**: Converts conversations from Perplexity AI and VS Code Copilot
-- **Automatic Classification**: Detects cybersecurity domains (GRC, Risk Management, Threat Intelligence, SOC, etc.)
-- **Logseq Integration**: Generates notes with YAML frontmatter following Logseq schema standards
-- **Duplicate Detection**: Uses SHA256 hashing to identify and skip duplicate content
-- **Resume Capability**: Builds index of existing files; safely rerun without recreating files
-- **Intelligent Title Extraction**: Extracts meaningful titles from conversations instead of generic labels
-- **Hierarchical Tagging**: Generates domain, activity type, and source tags for advanced filtering
-- **Batch Processing**: Process hundreds or thousands of conversations in one command
-- **Dry Run Mode**: Preview conversions before committing changes to disk
+## Quick Start
 
-## Sample Output
+```bash
+# Convert conversations to Logseq format
+python3 conversation_converter.py --input-dir ~/conversations --output-dir ~/logseq-notes
 
-Before (Raw conversation):
-```markdown
-User: What is NIST RMF and how do you implement it?
-Assistant: NIST RMF stands for...
+# Preview without saving (dry-run)
+python3 conversation_converter.py --input-dir ~/conversations --output-dir ~/logseq-notes --dry-run
+
+# Verbose output
+python3 conversation_converter.py --input-dir ~/conversations --output-dir ~/logseq-notes -v
 ```
 
-After (Logseq-integrated note):
-```markdown
+## Documentation
+
+📖 **Quick start:** [docs/QUICKSTART.md](./docs/QUICKSTART.md)
+
+- **[docs/EXAMPLES.md](./docs/EXAMPLES.md)** - 8 usage examples
+- **[docs/SETUP_SUMMARY.md](./docs/SETUP_SUMMARY.md)** - Full setup guide
+- **[docs/](./docs/)** - All documentation
+
+## Installation
+
+### Prerequisites
+
+- Python 3.8+
+- pip or poetry
+
+### Setup
+
+```bash
+# Clone repository
+git clone https://github.com/VioletFigueroa/conversation-to-logseq.git
+cd conversation-to-logseq
+
+# No external dependencies needed!
+# It uses Python stdlib only
+```
+
+## Usage
+
+```bash
+python3 conversation_converter.py -h
+
+Options:
+  --input-dir INPUT_DIR       Input directory with conversations
+  --output-dir OUTPUT_DIR     Output directory for Logseq notes
+  --dry-run                   Preview without saving
+  -v, --verbose               Verbose output
+  -q, --quiet                 Minimal output
+```
+
+## How It Works
+
+1. Scans input directory for conversation files
+2. Parses markdown/text content
+3. Extracts titles and metadata
+4. Classifies into domain categories
+5. Detects duplicates via SHA256
+6. Generates YAML frontmatter
+7. Saves Logseq-compatible notes
+
+### Output Format
+
+```yaml
 ---
-title: "How to implement NIST RMF in a small organization?"
-domain: "conversations/grc"
-type: "conversation"
+title: "Question or topic"
 source: "perplexity"
-created: "2025-11-23"
-tags:
-  - conversation
-  - perplexity
-  - activity/learning
-  - grc
-  - risk-management
-  - NIST-RMF
-status: "converted"
----
-
-# How to implement NIST RMF in a small organization?
-
-**Date**: 2025-11-23
-**Source**: Perplexity
-
+created_date: "2025-01-01"
+domain: ["technology", "learning"]
+tags: ["python", "tutorial"]
 ---
 
 ## Conversation
+
+[Full conversation content]
+```
 
 **User**: What is NIST RMF and how...
 **Assistant**: NIST RMF stands for...
