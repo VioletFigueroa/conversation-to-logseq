@@ -20,11 +20,13 @@ conversation-to-logseq/
 ### Features Implemented
 
 ✅ **Multi-source conversion**
+
 - Perplexity AI conversations
 - VS Code GitHub Copilot chats
 - Generic markdown conversations
 
 ✅ **Smart automation**
+
 - Automatic domain classification (10 cybersecurity domains)
 - Intelligent title extraction (skips generic labels)
 - Activity type detection (learning, research, problem-solving, planning, reference)
@@ -32,6 +34,7 @@ conversation-to-logseq/
 - Hierarchical tagging system
 
 ✅ **Data quality**
+
 - Duplicate detection using SHA256 hashing
 - Resume capability (safe reruns without duplicates)
 - Skip existing files by default
@@ -39,6 +42,7 @@ conversation-to-logseq/
 - Comprehensive error reporting
 
 ✅ **User experience**
+
 - Dry run preview mode
 - Batch processing (1000+ files in seconds)
 - Detailed progress output
@@ -46,6 +50,7 @@ conversation-to-logseq/
 - Logseq-ready YAML frontmatter
 
 ✅ **Production ready**
+
 - Full documentation (README, QUICKSTART, EXAMPLES)
 - MIT License
 - Comprehensive .gitignore
@@ -89,6 +94,7 @@ python conversation_converter.py \
 ### Dependencies
 
 **Zero external dependencies!** Uses only Python standard library:
+
 - `argparse` - CLI parsing
 - `pathlib` - Cross-platform file operations
 - `hashlib` - SHA256 hashing
@@ -127,6 +133,7 @@ By domain (via tags):
 ### Next Steps for GitHub
 
 1. **Initialize Git Repository**
+
    ```bash
    cd conversation-to-logseq
    git init
@@ -142,6 +149,7 @@ By domain (via tags):
    - Skip "Initialize with README" (we have one)
 
 3. **Push to GitHub**
+
    ```bash
    git remote add origin https://github.com/VioletFigueroa/conversation-to-logseq.git
    git branch -M main
@@ -180,6 +188,7 @@ By domain (via tags):
 ### Potential Extensions
 
 Future versions could add:
+
 - [ ] Support for ChatGPT, Claude exports
 - [ ] Web UI for batch processing
 - [ ] Custom domain classification configuration
@@ -197,11 +206,12 @@ Future versions could add:
 ✅ Configurable vs hard-coded values
 ✅ Informative user feedback
 
-### Ready to Publish!
+### Ready to Publish
 
 The repository is production-ready and matches the standards of your other projects (resume-automator, knowledge-pipeline, etc.).
 
 **Recommendation**: Yes, this should be published to GitHub. It's:
+
 - Functional and tested
 - Well-documented
 - Useful for knowledge management

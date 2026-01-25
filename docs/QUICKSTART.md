@@ -35,6 +35,7 @@ python conversation_converter.py \
 ## Domain Classification
 
 Automatically categorizes into 10+ cybersecurity domains:
+
 - **GRC** - Governance, Risk, Compliance
 - **Risk Management** - Assessment, analysis, vulnerability
 - **Threat Intelligence** - MITRE ATT&CK, threat actors
@@ -49,6 +50,7 @@ Automatically categorizes into 10+ cybersecurity domains:
 ## Output
 
 All conversations in single flat directory with unique filenames:
+
 ```
 output/
 ├── 2025-11-23_nist_rmf_implementation_abc12345.md
@@ -57,6 +59,7 @@ output/
 ```
 
 Domains stored as YAML tags for Logseq filtering:
+
 ```yaml
 tags:
   - conversation
@@ -91,6 +94,7 @@ pip install -r requirements.txt
 ## Usage
 
 ### Dry Run (Preview)
+
 ```bash
 python conversation_converter.py \
   --input-dir ~/perplexity_exports \
@@ -99,6 +103,7 @@ python conversation_converter.py \
 ```
 
 ### Convert Directory
+
 ```bash
 python conversation_converter.py \
   --input-dir ~/perplexity_exports \
@@ -106,6 +111,7 @@ python conversation_converter.py \
 ```
 
 ### Convert Single File
+
 ```bash
 python conversation_converter.py \
   --input-file conversation.md \
@@ -113,6 +119,7 @@ python conversation_converter.py \
 ```
 
 ### Force Overwrite
+
 ```bash
 python conversation_converter.py \
   --input-dir ~/chats \

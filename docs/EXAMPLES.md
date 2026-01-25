@@ -11,6 +11,7 @@ python conversation_converter.py \
 ```
 
 Output:
+
 ```
 🔍 Scanning: ~/Downloads/perplexity_conversations
 📊 Found 1200 files matching '*.md'
@@ -47,6 +48,7 @@ python conversation_converter.py \
 ```
 
 Output shows what would be created with `[DRY RUN]` markers:
+
 ```
 📄 Processing: chat_session_1.md
    🔍 Source: vscode_copilot
@@ -82,6 +84,7 @@ python conversation_converter.py \
 ```
 
 Output:
+
 ```
 ✅ Successfully converted: 50
 ⏭️  Skipped (existing): 1200
@@ -122,6 +125,7 @@ python conversation_converter.py \
 ```
 
 Output:
+
 ```
 📄 Processing: conversation_1_export.md
    ⏭️  Duplicate content exists: 2025-11-23_nist_rmf_abc12345.md
@@ -213,6 +217,7 @@ status: "converted"
 ### 1. Add Output Directory to Logseq
 
 In Logseq:
+
 1. Settings → Graph settings
 2. Add `./notes` as a graph location
 3. Reload
@@ -301,9 +306,11 @@ Query: #perplexity
 ```
 
 Query learning conversations from GRC domain:
+
 ```logseq
 Query: #grc #activity/learning
 ```
+
 ```
 
 ## Tips & Tricks

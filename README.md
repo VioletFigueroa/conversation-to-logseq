@@ -3,6 +3,7 @@
 Convert Perplexity and VS Code chat conversations into Logseq-compatible notes with automatic domain classification, duplicate detection, and metadata generation.
 
 **Features:**
+
 - ✅ Multi-source support (Perplexity, VS Code Copilot)
 - ✅ Automatic domain classification
 - ✅ Duplicate detection via SHA256 hashing
@@ -100,6 +101,7 @@ tags: ["python", "tutorial"]
 - [[Governance, Risk, and Compliance]]
 - [[Risk Management]]
 - [[NIST-RMF]]
+
 ```
 
 ## Installation
@@ -128,6 +130,7 @@ pip install -r requirements.txt
 ### Basic Commands
 
 #### Convert all conversations from a directory
+
 ```bash
 python conversation_converter.py \
   --input-dir /path/to/perplexity_exports \
@@ -135,6 +138,7 @@ python conversation_converter.py \
 ```
 
 #### Convert with dry-run (preview first)
+
 ```bash
 python conversation_converter.py \
   --input-dir /path/to/chats \
@@ -143,6 +147,7 @@ python conversation_converter.py \
 ```
 
 #### Convert a single file
+
 ```bash
 python conversation_converter.py \
   --input-file conversation.md \
@@ -150,6 +155,7 @@ python conversation_converter.py \
 ```
 
 #### Force overwrite existing files
+
 ```bash
 python conversation_converter.py \
   --input-dir /path/to/chats \
@@ -173,18 +179,23 @@ python conversation_converter.py \
 ## How It Works
 
 ### 1. Source Detection
+
 Automatically identifies if conversation is from:
+
 - **Perplexity AI** - Detects Perplexity branding/format
 - **VS Code Copilot** - Detects GitHub Copilot markers
 - **General** - Fallback for other formats
 
 ### 2. Metadata Extraction
+
 - **Title**: Extracts first meaningful user question (skips "hello", "test")
 - **Date**: Parses from content or file modification time
 - **Topics**: Identifies frameworks (NIST, MITRE ATT&CK, ISO 27001)
 
 ### 3. Domain Classification
+
 Automatically categorizes into cybersecurity domains:
+
 - **GRC** - Governance, Risk, Compliance
 - **Risk Management** - Risk assessment, vulnerability analysis
 - **Threat Intelligence** - MITRE ATT&CK, threat actors, IOCs
@@ -197,7 +208,9 @@ Automatically categorizes into cybersecurity domains:
 - **Career** - Resume, interviews, certifications
 
 ### 4. Activity Classification
+
 Tags conversations by type:
+
 - **learning** - Tutorials, explanations, "how to"
 - **research** - Analysis, comparisons, investigations
 - **problem-solving** - Debugging, troubleshooting
@@ -205,13 +218,16 @@ Tags conversations by type:
 - **reference** - Lists, documentation
 
 ### 5. Duplicate Detection
+
 - Computes SHA256 hash of conversation content
 - Maintains index of existing notes
 - Skips identical content (even with different filenames)
 - Safely resume interrupted conversions
 
 ### 6. Output Organization
+
 All files in a single flat directory with unique filenames:
+
 ```
 output/
 ├── 2025-11-23_nist_rmf_implementation_abc12345.md
@@ -227,6 +243,7 @@ Domains are preserved as tags in YAML frontmatter for Logseq filtering.
 Each converted note includes:
 
 ### YAML Frontmatter
+
 ```yaml
 ---
 title: "[Title]"
@@ -245,6 +262,7 @@ status: "converted"
 ```
 
 ### Sections
+
 1. **Title & Metadata** - Date and source
 2. **Conversation** - Full chat with User/Assistant markers
 3. **Related Topics** - Links to domain pages and concepts
@@ -253,11 +271,13 @@ status: "converted"
 ## Statistics & Performance
 
 ### Benchmarks
+
 - **Processing Speed**: ~50-100 files/second
 - **Memory Usage**: ~50MB for 1,200 conversations
 - **Deduplication**: Minimal overhead; single index pass
 
 ### Example Results
+
 ```
 📊 Conversion Summary
 ============================================================
@@ -287,6 +307,7 @@ By domain (via tags):
    - In Logseq settings, add your output directory as a graph
 
 2. **Filter by Domain**
+
    ```logseq
    Query: #grc
    Query: #security-operations
@@ -304,21 +325,25 @@ By domain (via tags):
 ## Troubleshooting
 
 ### "File already exists" messages
+
 - **Expected behavior**: Script skips existing files by default
 - **To overwrite**: Use `--force` flag
 - **To recreate**: Delete output directory first
 
 ### Poor title extraction (e.g., "Chat Session")
+
 - **Cause**: Conversation doesn't start with clear question
 - **Solution**: Script tries multiple fallback strategies
 - **Manual fix**: Edit the generated file's title
 
 ### Wrong domain classification
+
 - **Cause**: Content keywords match multiple domains
 - **Solution**: Script uses primary domain; all others in tags
 - **Manual fix**: Edit the generated file's domain in frontmatter
 
 ### Duplicate content warnings
+
 - **Normal behavior**: Script detects identical conversations
 - **Why**: Multiple exports of same conversation
 - **Action**: Check paths shown in summary
@@ -333,6 +358,7 @@ By domain (via tags):
 - ✅ Batch processing (1000+ files)
 
 ### Future Enhancements
+
 - [ ] Support for other AI chat platforms (ChatGPT, Claude, etc.)
 - [ ] Configurable domain classification
 - [ ] Export to other formats (Obsidian, OneNote)
@@ -342,18 +368,23 @@ By domain (via tags):
 ## Use Cases
 
 ### Personal Knowledge Management
+
 Build a searchable archive of all your AI conversations organized by topic and domain.
 
 ### Security Team Knowledge Base
+
 Share conversation insights with your team while maintaining domain classification.
 
 ### Learning & Research
+
 Track your learning journey across different cybersecurity topics.
 
 ### Career Development
+
 Reference past conversations about certifications, interviews, and career planning.
 
 ### Project Documentation
+
 Extract technical discussions for project retrospectives and documentation.
 
 ## License
@@ -363,6 +394,7 @@ MIT License - See LICENSE file for details
 ## Contributing
 
 Contributions welcome! Please:
+
 1. Fork the repository
 2. Create a feature branch
 3. Commit your changes
@@ -376,6 +408,7 @@ Created by [Your Name] - Cybersecurity Analyst & Knowledge Management Enthusiast
 ## Support
 
 For issues, questions, or suggestions:
+
 - Open an issue on GitHub
 - Check existing issues for solutions
 - Review troubleshooting section above

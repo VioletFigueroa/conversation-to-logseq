@@ -52,6 +52,7 @@ Longer explanation if needed
 Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
 Examples:
+
 - `feat: add domain classification`
 - `fix: handle duplicate detection correctly`
 - `docs: update quickstart`
@@ -114,6 +115,7 @@ Examples:
 ## Reporting Issues
 
 Include:
+
 - Description of the issue
 - Steps to reproduce
 - Expected behavior
@@ -134,6 +136,7 @@ By contributing, you agree your contributions are licensed under MIT License.
 ## Recognition
 
 Contributors will be:
+
 - Added to acknowledgments in README
 - Mentioned in release notes
 - Credited in git history
